@@ -16,11 +16,11 @@ CERT_CN       | localhost
 
 Using `docker-compose`:
 ```
-version: "3.1"
+version: "3.7"
 
 services:
   elb:
-    build: .
+    image: bostonuniversity/elb-simulator:latest
     ports:
       - "80:80"
       - "443:443"
@@ -44,11 +44,11 @@ the container, you'll keep using the same certificate.
 
 Using `docker-compose`:
 ```
-version: "3.1"
+version: "3.7"
 
 services:
   elb:
-    build: .
+    image: bostonuniversity/elb-simulator:latest
     ports:
       - "80:80"
       - "443:443"
