@@ -9,6 +9,7 @@ This can be changed by setting environment variables:
 
 Variable name | Default value
 --------------|------------------------
+DNS_RESOLVER  | 127.0.0.11
 REMOTE_URL    | http://localhost:8080/
 CERT_CN       | localhost
 
