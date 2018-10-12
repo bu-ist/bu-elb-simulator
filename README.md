@@ -4,7 +4,7 @@ This docker image tries to simulate the behavior of Amazon ELB and can be used
 to locally debug the webserver ECS containers that run behind ELB.
 
 This image also can be used as SSL terminating proxy. By default, it will generate
-a self-signed certificate for `localhost` and route the traffic to `http://localhost:8080/`.
+a self-signed certificate for `localhost`.
 This, along with other options, can be changed by setting environment variables.
 
 
@@ -12,7 +12,7 @@ This, along with other options, can be changed by setting environment variables.
 
 Variable name | Default value
 --------------|------------------------
-REMOTE_URL    | http://localhost:8080/
+REMOTE_URL    | -
 CERT_CN       | localhost
 DNS_RESOLVER  | 127.0.0.11
 
