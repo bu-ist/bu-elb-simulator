@@ -97,7 +97,14 @@ this certificate into your OS to avoid security warnings in browsers.
 Mount a volume into `/ssl` in your container. This way, even after rebuilding
 the container, you'll keep using the same certificate.
 
-Using `docker-compose`:
+#### Using `docker`
+
+```
+docker run --rm -p 443:443 -p 80:80 -e REMOTE_URL=http://host.docker.internal:5000 -v $(pwd)/ssl:/ssl bostonuniversity/elb-simulator:latest
+```
+
+#### Using `docker-compose`
+
 ```
 version: "3.7"
 
@@ -108,7 +115,7 @@ services:
       - "80:80"
       - "443:443"
     environment:
-      REMOTE_URL: "http://http_webserver:80"
+      REMOTE_URL: "http://http_webserver:8000"
     depends_on:
       - "http_webserver"
     volumes:
@@ -118,7 +125,7 @@ services:
   ...
 ```
 
-#### Install certificate into your OS
+### Install certificate into your OS
 
 For Mac, run:
 ```
