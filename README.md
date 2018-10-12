@@ -14,7 +14,7 @@ Variable name | Default value
 --------------|------------------------
 REMOTE_URL    | http://localhost:8080/
 CERT_CN       | localhost
-DNS_RESOLVER  | 127.0.0.11
+DNS_RESOLVER  | auto
 
 
 ## Sample Usage
@@ -60,7 +60,7 @@ Sometimes, you may see something like this in the ouput:
 
 > recv() failed (111: Connection refused) while resolving, resolver: 127.0.0.11:53
 
-This most likely indicates that the DNS resolver doesn't exist on the default address (127.0.0.11).
+This indicates that the image failed to determine what IP to use as DNS resolver.
 There are two possible remedies in this situation:
 
 1. Use the DNS resolver that was configured for your container.
@@ -84,7 +84,7 @@ There are two possible remedies in this situation:
 
     Then, pass it as `--net` parameter when running the container:
     ```
-    docker run --rm -p 443:443 -p 80:80 -e REMOTE_URL=http://host.docker.internal:5000 --net=local bostonuniversity/elb-simulator:latest
+    docker run --rm -p 443:443 -p 80:80 -e REMOTE_URL=http://host.docker.internal:5000 -e DNS_RESOLVER=127.0.0.11 --net=local bostonuniversity/elb-simulator:latest
     ```
 
 

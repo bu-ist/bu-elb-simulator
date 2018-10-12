@@ -1,6 +1,6 @@
 FROM nginx:1.13
 
-ENV DNS_RESOLVER="127.0.0.11"
+ENV DNS_RESOLVER="auto"
 ENV REMOTE_URL="http://localhost:8080/"
 ENV CERT_CN="localhost"
 
