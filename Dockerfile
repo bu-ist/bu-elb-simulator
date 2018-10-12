@@ -7,6 +7,7 @@ RUN apt-get update
 RUN apt-get install openssl -y
 
 RUN mkdir /template
+RUN mkdir /ssl
 
 COPY cert.conf /template/cert.conf
 COPY nginx-default.conf /etc/nginx/conf.d/default.conf
