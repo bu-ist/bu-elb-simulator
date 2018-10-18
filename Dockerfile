@@ -1,8 +1,8 @@
 FROM nginx:1.13
 
-ENV DNS_RESOLVER="auto"
-ENV REMOTE_URL="http://localhost:8080/"
+ENV REMOTE_URL=""
 ENV CERT_CN="localhost"
+ENV DNS_RESOLVER="auto"
 
 RUN apt-get update
 RUN apt-get install openssl -y
